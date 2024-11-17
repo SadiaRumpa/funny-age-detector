@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Detector 3000</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+    }
+    #button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    #button:hover {
+      background-color: #0056b3;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Age Detector 3000</h1>
+    <p>Click the button to reveal your *real* age...</p>
+    <button id="button">Reveal My Age</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const button = document.getElementById('button');
+    const message = document.getElementById('message');
+
+    const jokes = [
+      "Calculating your age...",
+      "Fetching data from the FBI...",
+      "Hacking into your birth certificate...",
+      "Hmm... you don't look a day over 60!",
+      "Wait, are you... 25? Or is it 2.5? 😜",
+      "Just kidding, you're ancient. Prepare for fossilization!",
+      "Error 404: Age not found. Try again in 10 years!"
+    ];
+
+    let clickCount = 0;
+
+    button.addEventListener('click', () => {
+      if (clickCount < jokes.length) {
+        message.textContent = jokes[clickCount];
+        clickCount++;
+      } else {
+        message.textContent = "Stop clicking, you're timeless!";
+        button.disabled = true;
+        button.style.backgroundColor = "gray";
+        button.style.cursor = "not-allowed";
+      }
+    });
+  </script>
+</body>
+</html>
